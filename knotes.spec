@@ -6,7 +6,7 @@
 #
 Name     : knotes
 Version  : 18.08.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/applications/18.08.0/src/knotes-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/knotes-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/knotes-18.08.0.tar.xz.sig
