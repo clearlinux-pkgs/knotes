@@ -5,25 +5,24 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knotes
-Version  : 18.08.0
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.08.0/src/knotes-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/knotes-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/knotes-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.2/src/knotes-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/knotes-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/knotes-18.12.2.tar.xz.sig
+Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
-Requires: knotes-bin
-Requires: knotes-lib
-Requires: knotes-data
-Requires: knotes-license
-Requires: knotes-locales
+Requires: knotes-bin = %{version}-%{release}
+Requires: knotes-data = %{version}-%{release}
+Requires: knotes-lib = %{version}-%{release}
+Requires: knotes-license = %{version}-%{release}
+Requires: knotes-locales = %{version}-%{release}
 BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
 BuildRequires : akonadi-notes-dev
 BuildRequires : akonadi-search-dev
-BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : grantlee-dev
@@ -40,18 +39,25 @@ BuildRequires : kpimtextedit-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
-BuildRequires : qtx11extras-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
-KNotes -- Notes for the K Desktop Environment
-=============================================
+4.13:
+-----
+KNotes printing theme support:
+- note name : use "name"
+- note description: use "description" keyword
+- current date time: use "currentDateTime" keyword
+- allow to inform that we have an alarm: use "hasAlarm" keyword
+- show alarm info: use "alarm" keyword (return date time as long format)
+- allow to inform that note is locked: use "isLock" keyword
+- note backgroundcolor name : use "backgroundColorName" keyword
 
 %package bin
 Summary: bin components for the knotes package.
 Group: Binaries
-Requires: knotes-data
-Requires: knotes-license
+Requires: knotes-data = %{version}-%{release}
+Requires: knotes-license = %{version}-%{release}
 
 %description bin
 bin components for the knotes package.
@@ -76,8 +82,8 @@ doc components for the knotes package.
 %package lib
 Summary: lib components for the knotes package.
 Group: Libraries
-Requires: knotes-data
-Requires: knotes-license
+Requires: knotes-data = %{version}-%{release}
+Requires: knotes-license = %{version}-%{release}
 
 %description lib
 lib components for the knotes package.
@@ -100,28 +106,28 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-18.08.0
+%setup -q -n knotes-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535431418
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549942873
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535431418
+export SOURCE_DATE_EPOCH=1549942873
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/knotes
-cp COPYING %{buildroot}/usr/share/doc/knotes/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/knotes/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/knotes/COPYING.LIB
-cp cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/knotes/cmake_modules_COPYING-CMAKE-SCRIPTS
+mkdir -p %{buildroot}/usr/share/package-licenses/knotes
+cp COPYING %{buildroot}/usr/share/package-licenses/knotes/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/COPYING.LIB
+cp cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/cmake_modules_COPYING-CMAKE-SCRIPTS
 pushd clr-build
 %make_install
 popd
@@ -155,6 +161,7 @@ popd
 /usr/share/icons/hicolor/32x32/apps/knotes.png
 /usr/share/icons/hicolor/48x48/apps/knotes.png
 /usr/share/icons/hicolor/64x64/apps/knotes.png
+/usr/share/icons/hicolor/scalable/apps/knotes.svg
 /usr/share/kconf_update/knotes-15.08-kickoff.sh
 /usr/share/kconf_update/knotes.upd
 /usr/share/knotes/print/themes/background-color/theme.desktop
@@ -233,19 +240,19 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.9.0
+/usr/lib64/libknotesprivate.so.5.10.2
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.9.0
+/usr/lib64/libnotesharedprivate.so.5.10.2
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact_knotesplugin.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/knotes/COPYING
-/usr/share/doc/knotes/COPYING.DOC
-/usr/share/doc/knotes/COPYING.LIB
-/usr/share/doc/knotes/cmake_modules_COPYING-CMAKE-SCRIPTS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/knotes/COPYING
+/usr/share/package-licenses/knotes/COPYING.DOC
+/usr/share/package-licenses/knotes/COPYING.LIB
+/usr/share/package-licenses/knotes/cmake_modules_COPYING-CMAKE-SCRIPTS
 
 %files locales -f akonadi_notes_agent.lang -f knotes.lang -f libnoteshared.lang
 %defattr(-,root,root,-)
