@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knotes
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/knotes-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/knotes-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/knotes-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/knotes-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/knotes-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/knotes-19.04.0.tar.xz.sig
+Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
 Requires: knotes-bin = %{version}-%{release}
@@ -23,7 +23,6 @@ BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
 BuildRequires : akonadi-notes-dev
 BuildRequires : akonadi-search-dev
-BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : grantlee-dev
@@ -41,11 +40,18 @@ BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev lib
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
 
 %description
-KNotes -- Notes for the K Desktop Environment
-=============================================
+4.13:
+-----
+KNotes printing theme support:
+- note name : use "name"
+- note description: use "description" keyword
+- current date time: use "currentDateTime" keyword
+- allow to inform that we have an alarm: use "hasAlarm" keyword
+- show alarm info: use "alarm" keyword (return date time as long format)
+- allow to inform that note is locked: use "isLock" keyword
+- note backgroundcolor name : use "backgroundColorName" keyword
 
 %package bin
 Summary: bin components for the knotes package.
@@ -100,23 +106,22 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-18.12.3
+%setup -q -n knotes-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552020504
+export SOURCE_DATE_EPOCH=1555723780
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552020504
+export SOURCE_DATE_EPOCH=1555723780
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
 cp COPYING %{buildroot}/usr/share/package-licenses/knotes/COPYING
@@ -235,9 +240,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.10.3
+/usr/lib64/libknotesprivate.so.5.11.0
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.10.3
+/usr/lib64/libnotesharedprivate.so.5.11.0
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact_knotesplugin.so
