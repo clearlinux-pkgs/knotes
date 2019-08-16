@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knotes
-Version  : 19.04.3
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.04.3/src/knotes-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/knotes-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/knotes-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.08.0/src/knotes-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/knotes-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/knotes-19.08.0.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -27,6 +27,7 @@ BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : grantlee-dev
+BuildRequires : grantleetheme-dev
 BuildRequires : kcalcore-dev
 BuildRequires : kcalutils-dev
 BuildRequires : kcontacts-dev
@@ -108,16 +109,17 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-19.04.3
+%setup -q -n knotes-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563041431
+export SOURCE_DATE_EPOCH=1565938795
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -131,7 +133,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1563041431
+export SOURCE_DATE_EPOCH=1565938795
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
 cp COPYING %{buildroot}/usr/share/package-licenses/knotes/COPYING
@@ -181,6 +183,7 @@ popd
 /usr/share/knotes/print/themes/default/theme.desktop
 /usr/share/knotes/print/themes/default/theme.html
 /usr/share/knotifications5/akonadi_notes_agent.notifyrc
+/usr/share/knsrcfiles/knotes_printing_theme.knsrc
 /usr/share/kontact/ksettingsdialog/knotes.setdlg
 /usr/share/kservices5/kcmknotessummary.desktop
 /usr/share/kservices5/knote_config_action.desktop
@@ -195,9 +198,8 @@ popd
 /usr/share/kxmlgui5/knotes/knotesappui.rc
 /usr/share/kxmlgui5/knotes/knotesui.rc
 /usr/share/metainfo/org.kde.knotes.appdata.xml
-/usr/share/xdg/knotes.categories
-/usr/share/xdg/knotes.renamecategories
-/usr/share/xdg/knotes_printing_theme.knsrc
+/usr/share/qlogging-categories5/knotes.categories
+/usr/share/qlogging-categories5/knotes.renamecategories
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -250,9 +252,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.11.3
+/usr/lib64/libknotesprivate.so.5.12.0
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.11.3
+/usr/lib64/libnotesharedprivate.so.5.12.0
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact_knotesplugin.so

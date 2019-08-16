@@ -1,4 +1,4 @@
-19.04.3
+19.08.0
 akonadi-contacts-dev
 akonadi-dev
 akonadi-mime-dev
@@ -6,6 +6,7 @@ akonadi-notes-dev
 akonadi-search-dev
 boost-dev
 grantlee-dev
+grantleetheme-dev
 kcalcore-dev
 kcalutils-dev
 kcontacts-dev
