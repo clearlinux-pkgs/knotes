@@ -6,7 +6,7 @@
 #
 Name     : knotes
 Version  : 19.12.0
-Release  : 15
+Release  : 16
 URL      : https://download.kde.org/stable/release-service/19.12.0/src/knotes-19.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.0/src/knotes-19.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.0/src/knotes-19.12.0.tar.xz.sig
@@ -28,7 +28,7 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : grantlee-dev
 BuildRequires : grantleetheme-dev
-BuildRequires : kcalcore-dev
+BuildRequires : kcalendarcore-dev
 BuildRequires : kcalutils-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kdnssd-dev
@@ -45,16 +45,8 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtx11extras-dev
 
 %description
-4.13:
------
-KNotes printing theme support:
-- note name : use "name"
-- note description: use "description" keyword
-- current date time: use "currentDateTime" keyword
-- allow to inform that we have an alarm: use "hasAlarm" keyword
-- show alarm info: use "alarm" keyword (return date time as long format)
-- allow to inform that note is locked: use "isLock" keyword
-- note backgroundcolor name : use "backgroundColorName" keyword
+KNotes -- Notes for the K Desktop Environment
+=============================================
 
 %package bin
 Summary: bin components for the knotes package.
@@ -117,10 +109,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576599417
+export SOURCE_DATE_EPOCH=1576626126
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -134,7 +125,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576599417
+export SOURCE_DATE_EPOCH=1576626126
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
 cp %{_builddir}/knotes-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976

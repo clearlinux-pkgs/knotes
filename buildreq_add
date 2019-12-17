@@ -1,2 +1,23 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+akonadi-contacts-dev
+akonadi-dev
+akonadi-mime-dev
+akonadi-notes-dev
+akonadi-search-dev
+boost-dev
+grantlee-dev
+grantleetheme-dev
+kcalendarcore-dev
+kcalutils-dev
+kcontacts-dev
+kdnssd-dev
+kglobalaccel-dev
+kimap-dev
+kmime-dev
+knotifyconfig-dev
+kontactinterface-dev
+kpimtextedit-dev
+libkdepim-dev
+pimcommon-dev
+qtx11extras-dev
