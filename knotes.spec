@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knotes
-Version  : 19.12.0
-Release  : 16
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/knotes-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/knotes-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/knotes-19.12.0.tar.xz.sig
+Version  : 19.12.1
+Release  : 17
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/knotes-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/knotes-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/knotes-19.12.1.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -45,8 +45,16 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtx11extras-dev
 
 %description
-KNotes -- Notes for the K Desktop Environment
-=============================================
+4.13:
+-----
+KNotes printing theme support:
+- note name : use "name"
+- note description: use "description" keyword
+- current date time: use "currentDateTime" keyword
+- allow to inform that we have an alarm: use "hasAlarm" keyword
+- show alarm info: use "alarm" keyword (return date time as long format)
+- allow to inform that note is locked: use "isLock" keyword
+- note backgroundcolor name : use "backgroundColorName" keyword
 
 %package bin
 Summary: bin components for the knotes package.
@@ -101,17 +109,18 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-19.12.0
-cd %{_builddir}/knotes-19.12.0
+%setup -q -n knotes-19.12.1
+cd %{_builddir}/knotes-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576626126
+export SOURCE_DATE_EPOCH=1578936319
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -125,13 +134,13 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576626126
+export SOURCE_DATE_EPOCH=1578936319
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
-cp %{_builddir}/knotes-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/knotes-19.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/knotes-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/knotes-19.12.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/knotes-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/knotes-19.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/knotes-19.12.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/knotes-19.12.1/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -244,9 +253,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.13.0
+/usr/lib64/libknotesprivate.so.5.13.1
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.13.0
+/usr/lib64/libnotesharedprivate.so.5.13.1
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact_knotesplugin.so
