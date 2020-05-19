@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knotes
-Version  : 20.04.0
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/knotes-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/knotes-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/knotes-20.04.0.tar.xz.sig
+Version  : 20.04.1
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/knotes-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/knotes-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/knotes-20.04.1.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -26,18 +26,36 @@ BuildRequires : akonadi-search-dev
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
 BuildRequires : grantlee-dev
 BuildRequires : grantleetheme-dev
 BuildRequires : kcalendarcore-dev
 BuildRequires : kcalutils-dev
+BuildRequires : kcmutils-dev
+BuildRequires : kcompletion-dev
+BuildRequires : kconfig-dev
+BuildRequires : kconfigwidgets-dev
 BuildRequires : kcontacts-dev
+BuildRequires : kcoreaddons-dev
+BuildRequires : kcrash-dev
 BuildRequires : kdnssd-dev
+BuildRequires : kdoctools-dev
 BuildRequires : kglobalaccel-dev
+BuildRequires : kiconthemes-dev
 BuildRequires : kimap-dev
+BuildRequires : kitemmodels-dev
+BuildRequires : kitemviews-dev
 BuildRequires : kmime-dev
+BuildRequires : knewstuff-dev
+BuildRequires : knotifications-dev
 BuildRequires : knotifyconfig-dev
 BuildRequires : kontactinterface-dev
+BuildRequires : kparts-dev
 BuildRequires : kpimtextedit-dev
+BuildRequires : ktextwidgets-dev
+BuildRequires : kwidgetsaddons-dev
+BuildRequires : kwindowsystem-dev
+BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
@@ -45,16 +63,8 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtx11extras-dev
 
 %description
-4.13:
------
-KNotes printing theme support:
-- note name : use "name"
-- note description: use "description" keyword
-- current date time: use "currentDateTime" keyword
-- allow to inform that we have an alarm: use "hasAlarm" keyword
-- show alarm info: use "alarm" keyword (return date time as long format)
-- allow to inform that note is locked: use "isLock" keyword
-- note backgroundcolor name : use "backgroundColorName" keyword
+KNotes -- Notes for the K Desktop Environment
+=============================================
 
 %package bin
 Summary: bin components for the knotes package.
@@ -109,38 +119,37 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-20.04.0
-cd %{_builddir}/knotes-20.04.0
+%setup -q -n knotes-20.04.1
+cd %{_builddir}/knotes-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587700645
+export SOURCE_DATE_EPOCH=1589927104
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587700645
+export SOURCE_DATE_EPOCH=1589927104
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
-cp %{_builddir}/knotes-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/knotes-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/knotes-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/knotes-20.04.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/knotes-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/knotes-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/knotes-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/knotes-20.04.1/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -253,9 +262,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.14.0
+/usr/lib64/libknotesprivate.so.5.14.1
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.14.0
+/usr/lib64/libnotesharedprivate.so.5.14.1
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact_knotesplugin.so
