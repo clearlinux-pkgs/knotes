@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knotes
-Version  : 20.08.0
-Release  : 24
-URL      : https://download.kde.org/stable/release-service/20.08.0/src/knotes-20.08.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.0/src/knotes-20.08.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.0/src/knotes-20.08.0.tar.xz.sig
+Version  : 20.08.2
+Release  : 25
+URL      : https://download.kde.org/stable/release-service/20.08.2/src/knotes-20.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.2/src/knotes-20.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.2/src/knotes-20.08.2.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -119,15 +119,15 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-20.08.0
-cd %{_builddir}/knotes-20.08.0
+%setup -q -n knotes-20.08.2
+cd %{_builddir}/knotes-20.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597789899
+export SOURCE_DATE_EPOCH=1602716926
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -143,13 +143,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1597789899
+export SOURCE_DATE_EPOCH=1602716926
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
-cp %{_builddir}/knotes-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/knotes-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/knotes-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/knotes-20.08.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/knotes-20.08.2/COPYING %{buildroot}/usr/share/package-licenses/knotes/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/knotes-20.08.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/knotes/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/knotes-20.08.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/knotes/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/knotes-20.08.2/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -264,9 +264,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.15.0
+/usr/lib64/libknotesprivate.so.5.15.2
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.15.0
+/usr/lib64/libnotesharedprivate.so.5.15.2
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact5/kontact_knotesplugin.so
