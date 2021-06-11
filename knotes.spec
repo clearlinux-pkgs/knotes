@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : knotes
-Version  : 21.04.0
-Release  : 31
-URL      : https://download.kde.org/stable/release-service/21.04.0/src/knotes-21.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.0/src/knotes-21.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.0/src/knotes-21.04.0.tar.xz.sig
+Version  : 21.04.2
+Release  : 32
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/knotes-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/knotes-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/knotes-21.04.2.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0 LGPL-3.0
@@ -119,15 +119,15 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-21.04.0
-cd %{_builddir}/knotes-21.04.0
+%setup -q -n knotes-21.04.2
+cd %{_builddir}/knotes-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619220572
+export SOURCE_DATE_EPOCH=1623394536
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -143,19 +143,19 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1619220572
+export SOURCE_DATE_EPOCH=1623394536
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
-cp %{_builddir}/knotes-21.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/knotes/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/knotes-21.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/knotes/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/knotes-21.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/knotes-21.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/knotes-21.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/knotes-21.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/knotes-21.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/knotes-21.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/knotes-21.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/knotes-21.04.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/knotes-21.04.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/knotes/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/knotes-21.04.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/knotes/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/knotes-21.04.2/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/knotes-21.04.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/knotes-21.04.2/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/knotes-21.04.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/knotes-21.04.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/knotes-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/knotes-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/knotes-21.04.2/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/knotes/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -272,9 +272,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.17.0
+/usr/lib64/libknotesprivate.so.5.17.2
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.17.0
+/usr/lib64/libnotesharedprivate.so.5.17.2
 /usr/lib64/qt5/plugins/kcm_knote.so
 /usr/lib64/qt5/plugins/kcm_knotessummary.so
 /usr/lib64/qt5/plugins/kontact5/kontact_knotesplugin.so
