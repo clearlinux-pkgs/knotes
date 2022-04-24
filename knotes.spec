@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : knotes
-Version  : 21.12.3
-Release  : 40
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/knotes-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/knotes-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/knotes-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 41
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/knotes-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/knotes-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/knotes-22.04.0.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0 LGPL-3.0
@@ -59,7 +59,6 @@ BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtx11extras-dev
 
 %description
@@ -119,15 +118,15 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-21.12.3
-cd %{_builddir}/knotes-21.12.3
+%setup -q -n knotes-22.04.0
+cd %{_builddir}/knotes-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646601124
+export SOURCE_DATE_EPOCH=1650836814
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -143,18 +142,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646601124
+export SOURCE_DATE_EPOCH=1650836814
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
-cp %{_builddir}/knotes-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/knotes/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/knotes-21.12.3/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/knotes/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/knotes-21.12.3/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/knotes-21.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/knotes-21.12.3/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/knotes-21.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/knotes-21.12.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/knotes-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/knotes-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/knotes-22.04.0/.krazy.license %{buildroot}/usr/share/package-licenses/knotes/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+cp %{_builddir}/knotes-22.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/knotes/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+cp %{_builddir}/knotes-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/knotes/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/knotes-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/knotes/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/knotes-22.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/knotes-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/knotes-22.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/knotes-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/knotes-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/knotes/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/knotes-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/knotes-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -197,15 +198,6 @@ popd
 /usr/share/knotes/print/themes/default/theme.html
 /usr/share/knotifications5/akonadi_notes_agent.notifyrc
 /usr/share/knsrcfiles/knotes_printing_theme.knsrc
-/usr/share/kservices5/kcm_knote_action.desktop
-/usr/share/kservices5/kcm_knote_collection.desktop
-/usr/share/kservices5/kcm_knote_display.desktop
-/usr/share/kservices5/kcm_knote_editor.desktop
-/usr/share/kservices5/kcm_knote_misc.desktop
-/usr/share/kservices5/kcm_knote_network.desktop
-/usr/share/kservices5/kcm_knote_print.desktop
-/usr/share/kservices5/kcmknotessummary.desktop
-/usr/share/kservices5/kontact/knotesplugin.desktop
 /usr/share/kxmlgui5/knotes/knotes_part.rc
 /usr/share/kxmlgui5/knotes/knotesappui.rc
 /usr/share/kxmlgui5/knotes/knotesui.rc
@@ -256,10 +248,6 @@ popd
 /usr/share/doc/HTML/pt_BR/akonadi_notes_agent/index.docbook
 /usr/share/doc/HTML/pt_BR/knotes/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/knotes/index.docbook
-/usr/share/doc/HTML/ru/akonadi_notes_agent/index.cache.bz2
-/usr/share/doc/HTML/ru/akonadi_notes_agent/index.docbook
-/usr/share/doc/HTML/ru/knotes/index.cache.bz2
-/usr/share/doc/HTML/ru/knotes/index.docbook
 /usr/share/doc/HTML/sv/akonadi_notes_agent/index.cache.bz2
 /usr/share/doc/HTML/sv/akonadi_notes_agent/index.docbook
 /usr/share/doc/HTML/sv/knotes/index.cache.bz2
@@ -272,9 +260,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.19.3
+/usr/lib64/libknotesprivate.so.5.20.0
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.19.3
+/usr/lib64/libnotesharedprivate.so.5.20.0
 /usr/lib64/qt5/plugins/kontact5/kontact_knotesplugin.so
 /usr/lib64/qt5/plugins/pim/kcms/knotes/kcm_knote_action.so
 /usr/lib64/qt5/plugins/pim/kcms/knotes/kcm_knote_collection.so
@@ -288,10 +276,12 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/knotes/20079e8f79713dce80ab09774505773c926afa2a
-/usr/share/package-licenses/knotes/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/knotes/757b86330df80f81143d5916b3e92b4bcb1b1890
 /usr/share/package-licenses/knotes/7697008f58568e61e7598e796eafc2a997503fde
+/usr/share/package-licenses/knotes/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/knotes/8287b608d3fa40ef401339fd907ca1260c964123
+/usr/share/package-licenses/knotes/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+/usr/share/package-licenses/knotes/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
 /usr/share/package-licenses/knotes/e458941548e0864907e654fa2e192844ae90fc32
 /usr/share/package-licenses/knotes/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
