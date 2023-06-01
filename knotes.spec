@@ -7,7 +7,7 @@
 #
 Name     : knotes
 Version  : 23.04.1
-Release  : 55
+Release  : 56
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/knotes-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/knotes-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/knotes-23.04.1.tar.xz.sig
@@ -116,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684871356
+export SOURCE_DATE_EPOCH=1685590679
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -149,7 +149,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684871356
+export SOURCE_DATE_EPOCH=1685590679
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
 cp %{_builddir}/knotes-%{version}/.krazy.license %{buildroot}/usr/share/package-licenses/knotes/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
@@ -277,9 +277,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libknotesprivate.so.5
 /V3/usr/lib64/libknotesprivate.so.5.23.1
-/V3/usr/lib64/libnotesharedprivate.so.5
 /V3/usr/lib64/libnotesharedprivate.so.5.23.1
 /V3/usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_action.so
 /V3/usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_collection.so
