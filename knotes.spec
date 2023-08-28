@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : knotes
-Version  : 23.04.3
-Release  : 60
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/knotes-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/knotes-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/knotes-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 61
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/knotes-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/knotes-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/knotes-23.08.0.tar.xz.sig
 Summary  : Popup notes
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0 LGPL-3.0
@@ -41,7 +41,6 @@ BuildRequires : kmime-dev
 BuildRequires : knotifyconfig-dev
 BuildRequires : kontactinterface-dev
 BuildRequires : kpimtextedit-dev
-BuildRequires : ktextaddons-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
@@ -108,15 +107,15 @@ locales components for the knotes package.
 
 
 %prep
-%setup -q -n knotes-23.04.3
-cd %{_builddir}/knotes-23.04.3
+%setup -q -n knotes-23.08.0
+cd %{_builddir}/knotes-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688881327
+export SOURCE_DATE_EPOCH=1693236829
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -149,7 +148,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688881327
+export SOURCE_DATE_EPOCH=1693236829
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knotes
 cp %{_builddir}/knotes-%{version}/.krazy.license %{buildroot}/usr/share/package-licenses/knotes/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
@@ -277,8 +276,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libknotesprivate.so.5.23.3
-/V3/usr/lib64/libnotesharedprivate.so.5.23.3
+/V3/usr/lib64/libknotesprivate.so.5.24.0
+/V3/usr/lib64/libnotesharedprivate.so.5.24.0
 /V3/usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_action.so
 /V3/usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_collection.so
 /V3/usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_display.so
@@ -289,9 +288,9 @@ popd
 /V3/usr/lib64/qt5/plugins/pim5/kcms/summary/kcmknotessummary.so
 /V3/usr/lib64/qt5/plugins/pim5/kontact/kontact_knotesplugin.so
 /usr/lib64/libknotesprivate.so.5
-/usr/lib64/libknotesprivate.so.5.23.3
+/usr/lib64/libknotesprivate.so.5.24.0
 /usr/lib64/libnotesharedprivate.so.5
-/usr/lib64/libnotesharedprivate.so.5.23.3
+/usr/lib64/libnotesharedprivate.so.5.24.0
 /usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_action.so
 /usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_collection.so
 /usr/lib64/qt5/plugins/pim5/kcms/knotes/kcm_knote_display.so
