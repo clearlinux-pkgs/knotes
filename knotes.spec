@@ -9,7 +9,7 @@
 #
 Name     : knotes
 Version  : 24.05.2
-Release  : 77
+Release  : 78
 URL      : https://download.kde.org/stable/release-service/24.05.2/src/knotes-24.05.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.05.2/src/knotes-24.05.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.05.2/src/knotes-24.05.2.tar.xz.sig
